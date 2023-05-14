@@ -1,0 +1,38 @@
+// app global css in SCSS form
+.q-item {
+    direction: rtl;
+}
+
+
+
+.q-item__label--header {
+    direction: rtl;
+}
+
+.q-drawer {
+    background-color: $primary;
+}
+
+.q-header .q-layout__shadow {
+    width: 144px;
+
+}
+
+.fixed-top {
+    height: 70px;
+}
+
+.q-form {
+    direction: rtl;
+}
+
+.q-field__inner {
+
+    text-align: right;
+}
+
+
+
+[dir="rtl"] .q-field__inner {
+    text-align: right;
+}

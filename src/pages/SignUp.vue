@@ -1,0 +1,286 @@
+<template>
+  <div class="row q-col-gutter-sm q-py-sm">
+    <div class="sidebarone">
+      <img style="margin-top: -10px" src="herfeplus.jpg" />
+    </div>
+    <div class="col-md-3 col-xs-12 col-sm-12 col-lg-3 offset-3 sidebar">
+      <q-card class="my-card-signup">
+        <q-card-section>
+          <div dir="rtl" class="q-mt-sm q-mr-lg">ثبت نام</div>
+        </q-card-section>
+        <q-card-section>
+          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="username"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span>نام کاربری</span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorOne"
+                >
+                  {{ errorOne }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="name"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span>نام </span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorTwo"
+                >
+                  {{ errorTwo }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="family"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span>نام خانوادگی </span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorThree"
+                >
+                  {{ errorThree }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="mobile"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span>شماره همراه </span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorFour"
+                >
+                  {{ errorFour }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="email"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span> ایمیل </span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorFive"
+                >
+                  {{ errorFive }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center" dir="rtl">
+              <label class="pure-material-textfield-outlined">
+                <input
+                  v-model="password"
+                  style="
+                    border: 1px solid #f1f1f1;
+                    width: 440px;
+                    height: 60px;
+                    border-radius: 10px;
+                    background-color: #f1f1f1;
+                  "
+                  placeholder=" "
+                />
+                <span> رمزعبور </span>
+                <div
+                  style="color: red"
+                  class="ui basic label pointing red"
+                  v-if="errorSix"
+                >
+                  {{ errorSix }}
+                </div>
+              </label>
+            </div>
+            <div class="flex flex-center">
+              <q-btn class="btn-login" to="/" label="ثبت اطلاعات" />
+            </div>
+
+            <div class="text-center">
+              <q-btn
+                flat
+                class="full-width"
+                to="/"
+                label="برگشت به صفحه ورود"
+                type="submit"
+                color="primary"
+              />
+            </div>
+            <div class="text-center">
+              <svg
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.0617 0C6.32685 0 0.0493164 6.2718 0.0493164 13.9996C0.0493164 21.7273 6.32685 27.9991 14.0617 27.9991C21.7965 27.9991 28.074 21.7273 28.074 13.9996C28.074 6.2718 21.7965 0 14.0617 0ZM20.5634 9.5197C20.3532 11.7316 19.4424 17.1075 18.98 19.5854C18.7838 20.6354 18.3915 20.9853 18.0272 21.0273C17.2144 21.0973 16.5979 20.4954 15.8132 19.9774C14.5801 19.1654 13.8795 18.6614 12.6885 17.8774C11.3012 16.9675 12.198 16.4635 12.9967 15.6515C13.2069 15.4415 16.7941 12.1796 16.8641 11.8856C16.8739 11.8411 16.8726 11.7949 16.8604 11.751C16.8481 11.707 16.8254 11.6668 16.7941 11.6336C16.71 11.5636 16.5979 11.5916 16.4998 11.6056C16.3737 11.6336 14.412 12.9356 10.5866 15.5115C10.0261 15.8895 9.52166 16.0855 9.07327 16.0715C8.56882 16.0575 7.61598 15.7915 6.90135 15.5535C6.01857 15.2735 5.33197 15.1195 5.38802 14.6295C5.41604 14.3776 5.76635 14.1256 6.42493 13.8596C10.5165 12.0816 13.2349 10.9057 14.5941 10.3457C18.4896 8.72173 19.2883 8.44174 19.8207 8.44174C19.9328 8.44174 20.1991 8.46973 20.3672 8.60973C20.5073 8.72173 20.5494 8.87572 20.5634 8.98772C20.5494 9.07172 20.5774 9.32371 20.5634 9.5197Z"
+                  fill="#008080"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+              >
+                <path
+                  d="M14.0138 4.03537e-08C11.5802 -0.000184543 9.18848 0.632864 7.07414 1.83682C4.9598 3.04077 3.19575 4.77412 1.95567 6.8662C0.715593 8.95828 0.0422456 11.337 0.00192393 13.768C-0.0383977 16.1991 0.555697 18.5988 1.72571 20.7308L0.580439 24.7692C0.473599 25.1372 0.467593 25.5271 0.563049 25.8982C0.658504 26.2693 0.851921 26.608 1.12311 26.879C1.39429 27.1499 1.7333 27.3432 2.10475 27.4385C2.47619 27.5339 2.86645 27.5279 3.23478 27.4212L7.27693 26.2769C9.15018 27.3027 11.2334 27.887 13.3673 27.9852C15.5012 28.0834 17.6293 27.6928 19.589 26.8434C21.5486 25.994 23.288 24.7082 24.6741 23.0843C26.0602 21.4604 27.0564 19.5414 27.5864 17.4739C28.1165 15.4064 28.1664 13.2453 27.7324 11.1556C27.2984 9.06588 26.392 7.10298 25.0823 5.41691C23.7727 3.73083 22.0946 2.36622 20.1762 1.42737C18.2578 0.488526 16.15 0.000295626 14.0138 4.03537e-08ZM17.261 22.6154H17.2476C14.1017 22.6118 11.0858 21.3608 8.8626 19.137C6.63938 16.9133 5.39059 13.8988 5.3906 10.7558C5.39416 9.47282 5.90678 8.24364 6.81605 7.33772C7.72533 6.4318 8.95705 5.92307 10.2412 5.92308C10.5942 5.92385 10.9407 6.01758 11.2459 6.19484C11.551 6.37209 11.804 6.6266 11.9793 6.93269L13.5557 9.69231C13.7461 10.0228 13.8441 10.3984 13.8393 10.7796C13.8346 11.1609 13.7273 11.5339 13.5288 11.8596L12.5721 13.4615C13.0532 14.2787 13.7349 14.9598 14.5528 15.4404L16.1562 14.4846C16.4822 14.2863 16.8555 14.1791 17.2371 14.1744C17.6188 14.1696 17.9947 14.2675 18.3255 14.4577L21.0876 16.0327C21.394 16.2078 21.6487 16.4606 21.8261 16.7655C22.0035 17.0703 22.0974 17.4166 22.0981 17.7692C22.0982 19.0522 21.589 20.2828 20.6822 21.1912C19.7755 22.0997 18.5452 22.6118 17.261 22.6154Z"
+                  fill="#008080"
+                />
+                <path
+                  d="M15.1591 17.5942C15.0092 17.6818 14.8405 17.7324 14.6671 17.7417C14.4937 17.7511 14.3205 17.719 14.162 17.6481C12.4677 16.8978 11.1134 15.5447 10.3624 13.8519C10.2914 13.6936 10.2593 13.5206 10.2687 13.3473C10.278 13.1741 10.3287 13.0055 10.4163 12.8557L11.6829 10.7558L10.1603 8.0769C9.46094 8.09447 8.79612 8.38443 8.30776 8.88493C7.8194 9.38542 7.54618 10.0568 7.5464 10.7558C7.54463 12.0297 7.79425 13.2915 8.28098 14.469C8.76772 15.6464 9.48202 16.7165 10.383 17.6179C11.284 18.5194 12.3541 19.2345 13.532 19.7224C14.7098 20.2104 15.9724 20.4615 17.2476 20.4615H17.261C17.9606 20.4617 18.6326 20.1888 19.1336 19.7008C19.6345 19.2129 19.9247 18.5487 19.9423 17.85L17.261 16.3288L15.1591 17.5942Z"
+                  fill="#008080"
+                />
+              </svg>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="28"
+                viewBox="0 0 29 28"
+                fill="none"
+              >
+                <ellipse
+                  cx="14.037"
+                  cy="13.9996"
+                  rx="14.0123"
+                  ry="13.9996"
+                  fill="#008080"
+                />
+                <path
+                  d="M13.3716 16.0647L12.0754 17.3597C11.8022 17.6327 11.3678 17.6327 11.0876 17.3667C11.0105 17.2897 10.9334 17.2197 10.8564 17.1427C10.1347 16.4147 9.48317 15.6517 8.90165 14.8538C8.32715 14.0558 7.86474 13.2578 7.52844 12.4668C7.19915 11.6689 7.03101 10.9059 7.03101 10.1779C7.03101 9.70192 7.11508 9.24693 7.28323 8.82694C7.45138 8.39996 7.71761 8.00797 8.08894 7.65798C8.53733 7.21699 9.02776 7 9.54622 7C9.74239 7 9.93857 7.042 10.1137 7.126C10.2959 7.20999 10.457 7.33599 10.5831 7.51798L12.2086 9.80691C12.3347 9.98191 12.4258 10.1429 12.4888 10.2969C12.5519 10.4439 12.5869 10.5909 12.5869 10.7239C12.5869 10.8919 12.5379 11.0599 12.4398 11.2209C12.3487 11.3819 12.2156 11.5499 12.0474 11.7179L11.515 12.2708C11.4379 12.3478 11.4029 12.4388 11.4029 12.5508C11.4029 12.6068 11.4099 12.6558 11.4239 12.7118C11.4449 12.7678 11.4659 12.8098 11.4799 12.8518C11.606 13.0828 11.8232 13.3838 12.1315 13.7478C12.4468 14.1118 12.7831 14.4828 13.1474 14.8538C13.2175 14.9238 13.2945 14.9938 13.3646 15.0637C13.6448 15.3367 13.6518 15.7847 13.3716 16.0647Z"
+                  fill="white"
+                />
+                <path
+                  d="M21.0223 18.4304C21.0223 18.6264 20.9873 18.8294 20.9173 19.0254C20.8962 19.0814 20.8752 19.1374 20.8472 19.1934C20.7281 19.4454 20.574 19.6834 20.3708 19.9073C20.0275 20.2853 19.6491 20.5583 19.2218 20.7333C19.2148 20.7333 19.2077 20.7403 19.2007 20.7403C18.7874 20.9083 18.339 20.9993 17.8556 20.9993C17.1409 20.9993 16.3773 20.8313 15.5715 20.4883C14.7658 20.1453 13.9601 19.6834 13.1614 19.1024C12.8882 18.8994 12.6149 18.6964 12.3557 18.4794L14.6467 16.1905C14.8429 16.3375 15.0181 16.4495 15.1652 16.5265C15.2002 16.5405 15.2423 16.5615 15.2913 16.5825C15.3473 16.6035 15.4034 16.6105 15.4665 16.6105C15.5856 16.6105 15.6766 16.5685 15.7537 16.4915L16.2862 15.9665C16.4613 15.7915 16.6295 15.6585 16.7906 15.5745C16.9518 15.4765 17.1129 15.4275 17.2881 15.4275C17.4212 15.4275 17.5613 15.4555 17.7154 15.5185C17.8696 15.5815 18.0307 15.6725 18.2059 15.7915L20.5249 17.4364C20.7071 17.5624 20.8332 17.7094 20.9102 17.8844C20.9803 18.0594 21.0223 18.2344 21.0223 18.4304Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </q-form>
+        </q-card-section>
+      </q-card>
+    </div>
+  </div>
+</template>
+  <script setup>
+import { useRouter } from "vue-router";
+import useQuasar from "quasar/src/composables/use-quasar.js";
+import { ref, computed } from "vue";
+const router = useRouter();
+const $q = useQuasar();
+const username = ref("");
+const mobile = ref("");
+const password = ref("");
+let family = ref("");
+let email = ref("");
+
+let input = ref("");
+const errorOne = computed(() => {
+  return username.value === "" ? " نام کاربری اشتباه است" : "";
+});
+const errorTwo = computed(() => {
+  return name.value === "" ? " نام  اشتباه است" : "";
+});
+const errorThree = computed(() => {
+  return family.value === "" ? " نام خانوادگی اشتباه است" : "";
+});
+const errorFour = computed(() => {
+  return mobile.value === "" ? "شماره واردشده اشتباه است" : "";
+});
+const errorFive = computed(() => {
+  return email.value === "" ? "ایمیل واردشده اشتباه است" : "";
+});
+
+const errorSix = computed(() => {
+  return password.value === "" ? "پسورد واردشده اشتباه است" : "";
+});
+const name = ref(null);
+const text = ref(null);
+const accept = ref(false);
+const onSubmit = () => {
+  if (accept.value !== true) {
+    $q.notify({
+      color: "red-5",
+      textColor: "white",
+      icon: "warning",
+      message: "You need to accept the license and terms first",
+    });
+  } else {
+    $q.notify({
+      color: "green-4",
+      textColor: "white",
+      icon: "cloud_done",
+      message: "Submitted",
+    });
+  }
+};
+
+const onReset = () => {
+  name.value = null;
+  text.value = null;
+  accept.value = false;
+};
+</script>
+<style >
+</style>
+
